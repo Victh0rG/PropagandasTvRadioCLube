@@ -1,0 +1,12 @@
+/* Estilo para o player de vídeo */
+.video-player {
+    width: auto; /* Largura proporcional */
+    height: auto; /* Altura ajustada proporcionalmente */
+    max-width: 800px; /* Largura máxima */
+     /* Borda para destaque */
+     /* Bordas arredondadas */
+    display: block; /* Exibe como bloco */
+    margin: 20px auto; /* Centraliza horizontalmente */
+    padding: auto;
+  }
+  

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Player de Vídeo Local</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <video id="videoPlayer" controls autoplay>
+    <source id="videoSource" src="videos/videoteste0.mp4" type="video/mp4">
+  </video>
+
+  <script>
+    // Lista de vídeos
+    const videoPlaylist = [
+      'videos/videoteste0.mp4',
+      'videos/SOS-PICOS.mp4',
+      'videos/CHAMADA-GE-2024.mp4',
+      'videos/CHAMADA-G-12024.mp4',
+      'videos/60-REDE-CLUBE.mp4',
+    ];
+
+    let currentVideoIndex = 0; // Índice do vídeo atual
+    const videoPlayer = document.getElementById('videoPlayer'); // Referência ao player de vídeo
+    const videoSource = document.getElementById('videoSource'); // Referência ao elemento <source>
+
+
+    // Evento que detecta quando o vídeo termina
+    videoPlayer.addEventListener('ended', () => {
+      
+      
+        if (currentVideoIndex < videoPlaylist.length) {
+          currentVideoIndex++; // Avança para o próximo vídeo
+          if(currentVideoIndex >= videoPlaylist.length){
+            currentVideoIndex = 0;
+          }
+          // Atualiza a fonte do vídeo
+          videoSource.src = videoPlaylist[currentVideoIndex];
+          videoPlayer.load(); // Carrega o novo vídeo
+          videoPlayer.play(); // Começa a reprodução automaticamente
+          
+        } else {
+          console.log('Fim da playlist.');
+        }
+      
+    });
+    </script>
+</body>
+</html>
