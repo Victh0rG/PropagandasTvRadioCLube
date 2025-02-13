@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <video id="videoPlayer" controls autoplay>
+  <video id="videoPlayer" class="video-player" controls autoplay >
     <source id="videoSource" src="videos/videoteste0.mp4" type="video/mp4">
   </video>
 
@@ -25,10 +25,27 @@
     const videoPlayer = document.getElementById('videoPlayer'); // Referência ao player de vídeo
     const videoSource = document.getElementById('videoSource'); // Referência ao elemento <source>
 
+    function enterFullscreen() {
+      if (videoPlayer.requestFullscreen) {
+        videoPlayer.requestFullscreen(); // Padrão para a maioria dos navegadores
+      } else if (videoPlayer.msRequestFullscreen) {
+        videoPlayer.msRequestFullscreen(); // Internet Explorer / Edge
+      }
+    }
+
+     // Inicia automaticamente o fullscreen quando o vídeo começa a reproduzir
+     videoPlayer.addEventListener('play', () => {
+      enterFullscreen();
+    });
+    
+    // Opcional: Força o fullscreen no carregamento da página
+    window.addEventListener('load', () => {
+      videoPlayer.play(); // Garante que o vídeo será reproduzido
+      enterFullscreen(); // Tenta entrar em fullscreen logo no carregamento
+    });
 
     // Evento que detecta quando o vídeo termina
     videoPlayer.addEventListener('ended', () => {
-      
       
         if (currentVideoIndex < videoPlaylist.length) {
           currentVideoIndex++; // Avança para o próximo vídeo
@@ -45,6 +62,7 @@
         }
       
     });
+
     </script>
 </body>
 </html>
