@@ -25,6 +25,7 @@
     const videoPlayer = document.getElementById('videoPlayer'); // Referência ao player de vídeo
     const videoSource = document.getElementById('videoSource'); // Referência ao elemento <source>
 
+    // MESMO FORCANDO O FULLSCREEN AUTO OS NAVEGADORES AINDA EXIGEM ITERCAO COM O USUARIO
     function enterFullscreen() {
       if (videoPlayer.requestFullscreen) {
         videoPlayer.requestFullscreen(); // Padrão para a maioria dos navegadores
