@@ -1,7 +1,7 @@
 /* Estilo para o player de vídeo */
 .video-player {
-  width: 87%; /* Largura proporcional */
-    height: auto; /* Altura ajustada proporcionalmente */
+    width: 87%; /* Largura proporcional */
+    height: max-content; /* Altura ajustada proporcionalmente */
     max-width: auto; /* Largura máxima */
      /* Borda para destaque */
      /* Bordas arredondadas */
@@ -10,4 +10,19 @@
     padding: auto;
 
   }
+
+.rss{
+  height: 20%;
+}
+
+.seila{
+  padding: auto;
+}
+.body {
+  height: max-content;
+}
   
+.html {
+  background-color: black;
+}
+
